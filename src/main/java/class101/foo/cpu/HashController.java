@@ -21,7 +21,7 @@ public class HashController {
 
     @RequestMapping("/hello")
     public String hello() {
-        return "hello deploy change port 80 to 8080";
+        return "hello deploy process kill command";
     }
 
     private String getMD5Digest(String input) throws NoSuchAlgorithmException {

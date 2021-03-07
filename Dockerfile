@@ -1,6 +1,7 @@
-FROM openjdk:8-jdk-alpine
-RUN apt-get update && apt-get install dos2unix \
-    chomod 544 mvnw \
+FROM centos:7
+CMD /bin/bash
+RUN yum install -y java \
+    chmod 544 mvnw \
     mvnw clean package
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar

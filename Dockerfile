@@ -1,8 +1,5 @@
-FROM centos:7
-CMD /bin/bash
-RUN yum install -y java \
-    chmod 544 mvnw \
-    mvnw clean package
-ARG JAR_FILE=target/*.jar
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
